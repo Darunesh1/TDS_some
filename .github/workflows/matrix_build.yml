@@ -5,18 +5,15 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        version: [14, 16, 18]
     steps:
-      - name: matrix-73c94d4
+      - name: matrix-85506b3
         run: echo "Building for version ${{ matrix.version }}"
-
+      
       - name: Generate build artifact
         run: echo "Build output for version ${{ matrix.version }}" > output.txt
-
+      
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: build-73c94d4-v${{ matrix.version }}
+          name: build-85506b3-v${{ matrix.version }}
           path: output.txt
